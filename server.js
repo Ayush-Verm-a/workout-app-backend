@@ -7,6 +7,8 @@ const userRoutes = require('./routes/user')
 const cors = require('cors')
 const corsOptions = require('./config/corsOptions')
 
+const PORT = process.env.PORT || 4000
+
 // express app
 const app = express()
 
@@ -28,8 +30,8 @@ mongoose.connect(process.env.MONGO_URI)  // It is asynchronous and returns a pro
     .then(() => {
         console.log('Connected to DB')
         // listen for requests
-        app.listen(process.env.PORT, () => {
-            console.log('Server listening on port', process.env.PORT)
+        app.listen(PORT, () => {
+            console.log('Server listening on port', PORT)
         })
     })
     .catch((error) => {
